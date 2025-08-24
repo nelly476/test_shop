@@ -1,0 +1,704 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Джинсы Basic",
+      "price": 110.16,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/1/400/300"
+    },
+    {
+      "id": 2,
+      "name": "Йогурт Eco",
+      "price": 4.67,
+      "category": "food",
+      "image": "https://picsum.photos/seed/2/400/300"
+    },
+    {
+      "id": 3,
+      "name": "Джинсы Slim",
+      "price": 44.54,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/3/400/300"
+    },
+    {
+      "id": 4,
+      "name": "Смартфон Lite",
+      "price": 712.37,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/4/400/300"
+    },
+    {
+      "id": 5,
+      "name": "Сыр Eco",
+      "price": 5.55,
+      "category": "food",
+      "image": "https://picsum.photos/seed/5/400/300"
+    },
+    {
+      "id": 6,
+      "name": "Камера Max",
+      "price": 99.58,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/6/400/300"
+    },
+    {
+      "id": 7,
+      "name": "Джинсы Sport",
+      "price": 39.88,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/7/400/300"
+    },
+    {
+      "id": 8,
+      "name": "Часы X100",
+      "price": 467.24,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/8/400/300"
+    },
+    {
+      "id": 9,
+      "name": "Рубашка Basic",
+      "price": 43.7,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/9/400/300"
+    },
+    {
+      "id": 10,
+      "name": "Шарф 2024",
+      "price": 90.26,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/10/400/300"
+    },
+    {
+      "id": 11,
+      "name": "Чай Bio",
+      "price": 7.08,
+      "category": "food",
+      "image": "https://picsum.photos/seed/11/400/300"
+    },
+    {
+      "id": 12,
+      "name": "Шарф 2024",
+      "price": 120.0,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/12/400/300"
+    },
+    {
+      "id": 13,
+      "name": "Пылесос X100",
+      "price": 266.79,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/13/400/300"
+    },
+    {
+      "id": 14,
+      "name": "Ноутбук Pro",
+      "price": 445.15,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/14/400/300"
+    },
+    {
+      "id": 15,
+      "name": "Сыр Eco",
+      "price": 9.47,
+      "category": "food",
+      "image": "https://picsum.photos/seed/15/400/300"
+    },
+    {
+      "id": 16,
+      "name": "Монитор 2024",
+      "price": 188.3,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/16/400/300"
+    },
+    {
+      "id": 17,
+      "name": "Камера 2024",
+      "price": 787.24,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/17/400/300"
+    },
+    {
+      "id": 18,
+      "name": "Куртка 2024",
+      "price": 100.8,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/18/400/300"
+    },
+    {
+      "id": 19,
+      "name": "Шорты Sport",
+      "price": 112.8,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/19/400/300"
+    },
+    {
+      "id": 20,
+      "name": "Ноутбук Max",
+      "price": 58.5,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/20/400/300"
+    },
+    {
+      "id": 21,
+      "name": "Джинсы 2024",
+      "price": 113.22,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/21/400/300"
+    },
+    {
+      "id": 22,
+      "name": "Монитор X100",
+      "price": 480.25,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/22/400/300"
+    },
+    {
+      "id": 23,
+      "name": "Платье 2024",
+      "price": 51.27,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/23/400/300"
+    },
+    {
+      "id": 24,
+      "name": "Пылесос 2024",
+      "price": 74.62,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/24/400/300"
+    },
+    {
+      "id": 25,
+      "name": "Камера X100",
+      "price": 260.21,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/25/400/300"
+    },
+    {
+      "id": 26,
+      "name": "Йогурт Fresh",
+      "price": 8.31,
+      "category": "food",
+      "image": "https://picsum.photos/seed/26/400/300"
+    },
+    {
+      "id": 27,
+      "name": "Колонка X100",
+      "price": 837.59,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/27/400/300"
+    },
+    {
+      "id": 28,
+      "name": "Яблоки Classic",
+      "price": 4.09,
+      "category": "food",
+      "image": "https://picsum.photos/seed/28/400/300"
+    },
+    {
+      "id": 29,
+      "name": "Шарф XL",
+      "price": 41.22,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/29/400/300"
+    },
+    {
+      "id": 30,
+      "name": "Молоко Premium",
+      "price": 5.87,
+      "category": "food",
+      "image": "https://picsum.photos/seed/30/400/300"
+    },
+    {
+      "id": 31,
+      "name": "Шоколад Fresh",
+      "price": 1.89,
+      "category": "food",
+      "image": "https://picsum.photos/seed/31/400/300"
+    },
+    {
+      "id": 32,
+      "name": "Смартфон Lite",
+      "price": 213.88,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/32/400/300"
+    },
+    {
+      "id": 33,
+      "name": "Куртка 2024",
+      "price": 72.06,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/33/400/300"
+    },
+    {
+      "id": 34,
+      "name": "Смартфон 2024",
+      "price": 694.81,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/34/400/300"
+    },
+    {
+      "id": 35,
+      "name": "Футболка Slim",
+      "price": 26.15,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/35/400/300"
+    },
+    {
+      "id": 36,
+      "name": "Колонка Max",
+      "price": 109.31,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/36/400/300"
+    },
+    {
+      "id": 37,
+      "name": "Шапка Slim",
+      "price": 72.43,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/37/400/300"
+    },
+    {
+      "id": 38,
+      "name": "Футболка XL",
+      "price": 54.57,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/38/400/300"
+    },
+    {
+      "id": 39,
+      "name": "Телевизор X100",
+      "price": 271.59,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/39/400/300"
+    },
+    {
+      "id": 40,
+      "name": "Колонка Pro",
+      "price": 155.21,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/40/400/300"
+    },
+    {
+      "id": 41,
+      "name": "Шоколад Classic",
+      "price": 9.54,
+      "category": "food",
+      "image": "https://picsum.photos/seed/41/400/300"
+    },
+    {
+      "id": 42,
+      "name": "Куртка Sport",
+      "price": 62.59,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/42/400/300"
+    },
+    {
+      "id": 43,
+      "name": "Бананы Fresh",
+      "price": 3.46,
+      "category": "food",
+      "image": "https://picsum.photos/seed/43/400/300"
+    },
+    {
+      "id": 44,
+      "name": "Кроссовки Slim",
+      "price": 43.85,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/44/400/300"
+    },
+    {
+      "id": 45,
+      "name": "Чай Fresh",
+      "price": 8.94,
+      "category": "food",
+      "image": "https://picsum.photos/seed/45/400/300"
+    },
+    {
+      "id": 46,
+      "name": "Носки 2024",
+      "price": 114.13,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/46/400/300"
+    },
+    {
+      "id": 47,
+      "name": "Носки XL",
+      "price": 20.63,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/47/400/300"
+    },
+    {
+      "id": 48,
+      "name": "Сыр Fresh",
+      "price": 5.2,
+      "category": "food",
+      "image": "https://picsum.photos/seed/48/400/300"
+    },
+    {
+      "id": 49,
+      "name": "Бананы Bio",
+      "price": 1.36,
+      "category": "food",
+      "image": "https://picsum.photos/seed/49/400/300"
+    },
+    {
+      "id": 50,
+      "name": "Куртка Slim",
+      "price": 56.34,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/50/400/300"
+    },
+    {
+      "id": 51,
+      "name": "Джинсы Sport",
+      "price": 34.89,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/51/400/300"
+    },
+    {
+      "id": 52,
+      "name": "Платье Basic",
+      "price": 67.92,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/52/400/300"
+    },
+    {
+      "id": 53,
+      "name": "Наушники Lite",
+      "price": 792.15,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/53/400/300"
+    },
+    {
+      "id": 54,
+      "name": "Джинсы Slim",
+      "price": 46.63,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/54/400/300"
+    },
+    {
+      "id": 55,
+      "name": "Бананы Premium",
+      "price": 5.13,
+      "category": "food",
+      "image": "https://picsum.photos/seed/55/400/300"
+    },
+    {
+      "id": 56,
+      "name": "Кроссовки Slim",
+      "price": 99.67,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/56/400/300"
+    },
+    {
+      "id": 57,
+      "name": "Монитор Lite",
+      "price": 220.66,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/57/400/300"
+    },
+    {
+      "id": 58,
+      "name": "Наушники Pro",
+      "price": 648.57,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/58/400/300"
+    },
+    {
+      "id": 59,
+      "name": "Футболка 2024",
+      "price": 28.67,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/59/400/300"
+    },
+    {
+      "id": 60,
+      "name": "Бананы Classic",
+      "price": 7.49,
+      "category": "food",
+      "image": "https://picsum.photos/seed/60/400/300"
+    },
+    {
+      "id": 61,
+      "name": "Джинсы Slim",
+      "price": 107.78,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/61/400/300"
+    },
+    {
+      "id": 62,
+      "name": "Йогурт Fresh",
+      "price": 1.55,
+      "category": "food",
+      "image": "https://picsum.photos/seed/62/400/300"
+    },
+    {
+      "id": 63,
+      "name": "Ноутбук Pro",
+      "price": 643.23,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/63/400/300"
+    },
+    {
+      "id": 64,
+      "name": "Шорты 2024",
+      "price": 88.19,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/64/400/300"
+    },
+    {
+      "id": 65,
+      "name": "Хлеб Premium",
+      "price": 9.14,
+      "category": "food",
+      "image": "https://picsum.photos/seed/65/400/300"
+    },
+    {
+      "id": 66,
+      "name": "Яблоки Classic",
+      "price": 9.33,
+      "category": "food",
+      "image": "https://picsum.photos/seed/66/400/300"
+    },
+    {
+      "id": 67,
+      "name": "Йогурт Bio",
+      "price": 4.41,
+      "category": "food",
+      "image": "https://picsum.photos/seed/67/400/300"
+    },
+    {
+      "id": 68,
+      "name": "Апельсины Fresh",
+      "price": 9.98,
+      "category": "food",
+      "image": "https://picsum.photos/seed/68/400/300"
+    },
+    {
+      "id": 69,
+      "name": "Телевизор Lite",
+      "price": 533.43,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/69/400/300"
+    },
+    {
+      "id": 70,
+      "name": "Наушники 2024",
+      "price": 234.18,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/70/400/300"
+    },
+    {
+      "id": 71,
+      "name": "Камера Pro",
+      "price": 892.14,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/71/400/300"
+    },
+    {
+      "id": 72,
+      "name": "Монитор Max",
+      "price": 629.59,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/72/400/300"
+    },
+    {
+      "id": 73,
+      "name": "Наушники Pro",
+      "price": 275.58,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/73/400/300"
+    },
+    {
+      "id": 74,
+      "name": "Наушники 2024",
+      "price": 575.93,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/74/400/300"
+    },
+    {
+      "id": 75,
+      "name": "Платье Basic",
+      "price": 24.28,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/75/400/300"
+    },
+    {
+      "id": 76,
+      "name": "Телевизор X100",
+      "price": 935.11,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/76/400/300"
+    },
+    {
+      "id": 77,
+      "name": "Хлеб Bio",
+      "price": 8.82,
+      "category": "food",
+      "image": "https://picsum.photos/seed/77/400/300"
+    },
+    {
+      "id": 78,
+      "name": "Футболка 2024",
+      "price": 58.27,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/78/400/300"
+    },
+    {
+      "id": 79,
+      "name": "Наушники Max",
+      "price": 308.71,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/79/400/300"
+    },
+    {
+      "id": 80,
+      "name": "Апельсины Eco",
+      "price": 9.22,
+      "category": "food",
+      "image": "https://picsum.photos/seed/80/400/300"
+    },
+    {
+      "id": 81,
+      "name": "Кроссовки 2024",
+      "price": 53.04,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/81/400/300"
+    },
+    {
+      "id": 82,
+      "name": "Камера 2024",
+      "price": 363.79,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/82/400/300"
+    },
+    {
+      "id": 83,
+      "name": "Монитор Lite",
+      "price": 295.77,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/83/400/300"
+    },
+    {
+      "id": 84,
+      "name": "Смартфон 2024",
+      "price": 791.75,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/84/400/300"
+    },
+    {
+      "id": 85,
+      "name": "Чай Fresh",
+      "price": 6.64,
+      "category": "food",
+      "image": "https://picsum.photos/seed/85/400/300"
+    },
+    {
+      "id": 86,
+      "name": "Носки Sport",
+      "price": 14.55,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/86/400/300"
+    },
+    {
+      "id": 87,
+      "name": "Джинсы 2024",
+      "price": 66.18,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/87/400/300"
+    },
+    {
+      "id": 88,
+      "name": "Пылесос Pro",
+      "price": 758.84,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/88/400/300"
+    },
+    {
+      "id": 89,
+      "name": "Чай Fresh",
+      "price": 7.99,
+      "category": "food",
+      "image": "https://picsum.photos/seed/89/400/300"
+    },
+    {
+      "id": 90,
+      "name": "Сыр Classic",
+      "price": 8.66,
+      "category": "food",
+      "image": "https://picsum.photos/seed/90/400/300"
+    },
+    {
+      "id": 91,
+      "name": "Ноутбук Max",
+      "price": 275.0,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/91/400/300"
+    },
+    {
+      "id": 92,
+      "name": "Шапка Sport",
+      "price": 118.17,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/92/400/300"
+    },
+    {
+      "id": 93,
+      "name": "Монитор X100",
+      "price": 227.7,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/93/400/300"
+    },
+    {
+      "id": 94,
+      "name": "Шоколад Bio",
+      "price": 3.12,
+      "category": "food",
+      "image": "https://picsum.photos/seed/94/400/300"
+    },
+    {
+      "id": 95,
+      "name": "Куртка Slim",
+      "price": 106.36,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/95/400/300"
+    },
+    {
+      "id": 96,
+      "name": "Шапка Slim",
+      "price": 45.0,
+      "category": "clothes",
+      "image": "https://picsum.photos/seed/96/400/300"
+    },
+    {
+      "id": 97,
+      "name": "Кофе Classic",
+      "price": 9.11,
+      "category": "food",
+      "image": "https://picsum.photos/seed/97/400/300"
+    },
+    {
+      "id": 98,
+      "name": "Апельсины Eco",
+      "price": 5.13,
+      "category": "food",
+      "image": "https://picsum.photos/seed/98/400/300"
+    },
+    {
+      "id": 99,
+      "name": "Телевизор Lite",
+      "price": 967.41,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/99/400/300"
+    },
+    {
+      "id": 100,
+      "name": "Камера 2024",
+      "price": 129.35,
+      "category": "electronics",
+      "image": "https://picsum.photos/seed/100/400/300"
+    }
+  ]
+}
