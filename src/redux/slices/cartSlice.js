@@ -2,46 +2,60 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import { axiosInstance } from "../../lib/axios";
 
 export const getItems = createAsyncThunk(
-  'items/fetch',
-  async ({ offset = 0, limit = 20, search = '' }) => {
-    const res = await axiosInstance.get('/products', {
-      params: {
-        _start: offset,
-        _end: offset + limit,
-        q: search,
-      },
-    });
-    return res.data;
+  "items/fetch",
+  async (
+    { category = [], sort, order } = {},
+    { rejectWithValue }
+  ) => {
+    try {
+      const params = new URLSearchParams();
+
+      // категории: ?category=a&category=b
+      if (Array.isArray(category) && category.length > 0) {
+        category.forEach((c) => params.append("category", c));
+      }
+
+      // сортировка: _sort=price&_order=asc
+      if (sort) params.set("_sort", sort);
+      if (order) params.set("_order", order);
+
+      const qs = params.toString();
+      const url = `/products${qs ? `?${qs}` : ""}`;
+
+      const res = await axiosInstance.get(url);
+      return res.data; // массив товаров
+    } catch (err) {
+      return rejectWithValue(err?.message || "Ошибка загрузки");
+    }
   }
 );
 
-export const getAllItems = createAsyncThunk(
-  'items/fetchAll',
-  async () => {
-    const res = await axiosInstance.get('/products');
-    return res.data;
-  }
-);
 
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: { 
-    items: {},
-    allItems: [],
-    status: 'idle', }, // { [productId]: { id, qty } }
+    items: [],
+    total: 0,
+    status: 'idle', 
+    cart: {},
+  },
   reducers: {
-  //   addToCart: (state, action) => {
-  //     const id = action.payload.id;
-  //     state.items[id] = state.items[id] ? { id, qty: state.items[id].qty + 1 } : { id, qty: 1 };
-  //   },
-  //   removeFromCart: (state, action) => { delete state.items[action.payload.id]; },
-  //   setQty: (state, action) => {
-  //     const { id, qty } = action.payload;
-  //     if (qty <= 0) delete state.items[id];
-  //     else state.items[id] = { id, qty };
-  //   },
-  //   clearCart: (state) => { state.items = {}; }
+    addToCart: (state, action) => {
+      const {id} = action.payload;
+      state.cart[id] = state.cart[id] ? { ...action.payload, qty: state.cart[id].qty + 1 } : { ...action.payload, qty: 1 };
+    },
+ decreaseInCart: (state, action) => {
+  const id = action.payload;
+  const item = state.cart[id];
+  if (!item) return;
+
+  if (item.qty > 1) {
+    item.qty -= 1;
+  } else {
+    delete state.cart[id];
+  }
+},
   },
   extraReducers: (builder) => {
     builder
@@ -49,29 +63,26 @@ const cartSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(getItems.fulfilled, (state, action) => {
-        // if (action.meta.arg.offset > 0) {
-        //   state.data = [...state.data, ...action.payload];
-        // } else {
-          state.items = action.payload;
-        // }
+        state.items = action.payload
+        state.total = action.payload.length
         state.status = 'succeeded';
       })
       .addCase(getItems.rejected, (state) => {
         state.status = 'failed';
       })
-      .addCase(getAllItems.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(getAllItems.fulfilled, (state, action) => {
-          state.allItems = action.payload;
-        state.status = 'succeeded';
-      })
-      .addCase(getAllItems.rejected, (state) => {
-        state.status = 'failed';
-      })
+      // .addCase(getAllItems.pending, (state) => {
+      //   state.status = 'loading';
+      // })
+      // .addCase(getAllItems.fulfilled, (state, action) => {
+      //     state.total = action.payload.length;
+      //   state.status = 'succeeded';
+      // })
+      // .addCase(getAllItems.rejected, (state) => {
+      //   state.status = 'failed';
+      // })
   },
 });
 
-export const { addToCart, removeFromCart, setQty, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, setQty, clearCart, decreaseInCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -1,4 +1,5 @@
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../ProductCard/ProductCard";
+import "./ProductGrid.scss"
 
 export const ProductGrid = ({ items }) => {
   return (
