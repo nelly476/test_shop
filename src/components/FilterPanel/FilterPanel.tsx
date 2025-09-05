@@ -1,36 +1,44 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./filterPanel.scss";
 
-export const FilterPanel = ({
-  value = [],
-  options = [
+interface FilterPanelProps {
+  value: string[];
+  toggleKey: (val: string[] | []) => void;
+}
+
+ const OPTIONS = [
     { key: "food", label: "Еда" },
     { key: "clothes", label: "Одежда" },
     { key: "electronics", label: "Электроника" },
-  ],
-  placeholder = "Выбрать категории",
+  ];
+
+const PLACEHOLDER = "Выбрать категории";
+
+
+export const FilterPanel: React.FC<FilterPanelProps> = ({
+  value,
   toggleKey
 }) => {
   const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const onDocClick = (e) => {
+    const onDocClick = (e: MouseEvent) => {
       if (!ref.current) return;
-      if (!ref.current.contains(e.target)) setOpen(false);
+      if (!ref.current.contains(e.target as Node)) setOpen(false);
     };
     document.addEventListener("click", onDocClick);
     return () => document.removeEventListener("click", onDocClick);
   }, []);
 
-  const selectAll = () => toggleKey("ALL", options)
-  const clearAll = () => toggleKey("CLEAR", options)
+  const selectAll = () => toggleKey(OPTIONS.map((o) => o.key))
+  const clearAll = () => toggleKey([])
 
   const labelText =
     value.length === 0
-      ? placeholder
+      ? PLACEHOLDER
       : value.length === 1
-      ? options.find((o) => o.key === value[0])?.label || placeholder
+      ? OPTIONS.find((o) => o.key === value[0])?.label || PLACEHOLDER
       : `Выбрано: ${value.length}`;
 
   return (
@@ -56,7 +64,7 @@ export const FilterPanel = ({
           </div>
 
           <div className="fp__list">
-            {options.map((o) => {
+            {OPTIONS.map((o) => {
               const checked = value.includes(o.key);
               return (
                 <label key={o.key} className={`fp__item ${checked ? "is-checked" : ""}`}>
@@ -64,7 +72,7 @@ export const FilterPanel = ({
                     className="fp__checkbox"
                     type="checkbox"
                     checked={checked}
-                    onChange={() => toggleKey(o.key)}
+                    onChange={() => toggleKey([o.key])}
                   />
                   <span className="fp__label">{o.label}</span>
                 </label>

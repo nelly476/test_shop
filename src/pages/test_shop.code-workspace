@@ -4,7 +4,7 @@
 			"path": "../.."
 		},
 		{
-			"path": "../../../tz"
+			"path": "../../../chat-app"
 		}
 	],
 	"settings": {}

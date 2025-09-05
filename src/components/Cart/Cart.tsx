@@ -1,15 +1,23 @@
+import { Product, useAppSelector } from "../../redux/slices/cartSlice"
 import "./Cart.scss";
 import { CartItem } from "./CartItem";
-import { useSelector } from "react-redux";
+import { selectCart, selectCartList } from "../../redux/selectors/cartSliceSelectors"
 
-export const Cart = ({
+interface CartProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onIncrement: (item: Product) => void;
+  onDecrement: (id: number) => void;
+}
+
+export const Cart: React.FC<CartProps> = ({
   isOpen,
   onClose,
   onIncrement,
   onDecrement,
 }) => {
 
-      const { cart } = useSelector((s) => s.cartSlice);
+      const cart = useAppSelector(selectCart)
       const items = Object.values(cart)
 
   return (

@@ -1,6 +1,15 @@
 import "./Sort.scss";
 
-export const Sort = ({ sort, changeSortKey, toggleSortOrder }) => {
+export type SortOrder = "asc" | "desc";
+export type SortState = {key: string, order: SortOrder}
+
+interface SortProps {
+  sort: SortState;
+  changeSortKey: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  toggleSortOrder: () => void;
+}
+
+export const Sort: React.FC<SortProps> = ({ sort, changeSortKey, toggleSortOrder }) => {
   const options = [{ key: "price", label: "Цена" }]
 
   return (

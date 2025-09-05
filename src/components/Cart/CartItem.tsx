@@ -1,7 +1,14 @@
+import { CartItemType, Product } from "@/redux/slices/cartSlice";
 import React, { useMemo } from "react";
 
+interface CartItemProps {
+  item: CartItemType;
+   onIncrement: (item: Product) => void;
+    onDecrement: (id: number) => void;
+}
+
 // Кастомное сравнение: перерисовывать только если реально поменялись значимые поля
-const areEqual = (prev, next) => {
+const areEqual = (prev: Readonly<CartItemProps>, next: Readonly<CartItemProps>) => {
   const p = prev.item;
   const n = next.item;
 
@@ -13,13 +20,12 @@ const areEqual = (prev, next) => {
     p.qty === n.qty &&
     p.category === n.category &&
     prev.onIncrement === next.onIncrement &&
-    prev.onDecrement === next.onDecrement &&
-    prev.onRemove === next.onRemove
+    prev.onDecrement === next.onDecrement 
   );
 };
 
 
-export const CartItem = React.memo(function CartItem({ item, onIncrement, onDecrement,
+export const CartItem: React.FC<CartItemProps> = React.memo(function CartItem({ item, onIncrement, onDecrement,
 }) {
     const {id, name, image, price, qty, category} = item
    

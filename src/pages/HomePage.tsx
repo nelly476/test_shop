@@ -1,35 +1,41 @@
 import { useEffect, useState, useMemo, useCallback } from "react"
 import { addToCart, getItems, decreaseInCart } from "../redux/slices/cartSlice"
-import { useDispatch, useSelector } from "react-redux"
 import { ProductGrid, Pagination, FilterPanel, Sort, Cart } from "../components"
 import { useSearchParams } from "react-router-dom"
+import { useAppSelector, useAppDispatch } from "../redux/slices/cartSlice"
+import { selectItems, selectItemsCount, selectCartStatus } from "../redux/selectors/cartSliceSelectors"
+import type { Product } from "../redux/slices/cartSlice"
+import { SortState } from "@/components/Sort/Sort"
+
 
 export const HomePage = () => {
 
-    const dispatch = useDispatch()
-    const [offset, setOffset] = useState(0);
-    const [page, setPage] = useState(1)
-    const [sort, setSort] = useState({ key: "price", order: "asc" })
+    const dispatch = useAppDispatch();
+    const [offset, setOffset] = useState<number>(0);
+    const [page, setPage] = useState<number>(1)
+    const [sort, setSort] = useState<SortState>({ key: "price", order: "asc" })
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const [paginatedData, setPaginatedData] = useState([])
-
-      const { items, total, status } = useSelector((s) => s.cartSlice);
-
+    const [paginatedData, setPaginatedData] = useState<Product[]>([])
+ 
+    const items = useAppSelector(selectItems)
+    const total = useAppSelector(selectItemsCount)
+    const status = useAppSelector(selectCartStatus)
 
     const PAGE_SIZE = 20;
-    const totalPages = total / 20
+    const totalPages = Math.ceil(total / PAGE_SIZE);
 
       // читаем массив категорий из URL
-  const cats = useMemo(() => {
+  const cats: string []= useMemo(() => {
   return searchParams.get("cats")?.split(",") ?? [];
 }, [searchParams]);
 
 
 useEffect(() => {
   dispatch(getItems({category: cats, sort: sort.key, order: sort.order}))
-}, [dispatch, cats, offset, sort])
+}, [dispatch, cats, sort])
+// [offset]
 
 useEffect(() => {
   if (items) {
@@ -38,22 +44,22 @@ useEffect(() => {
 }, [items, offset])
 
 
-  const handlePageChange = (num) => {
+  const handlePageChange = (num: number) => {
     setPage(num)
     setOffset((num - 1) * PAGE_SIZE)
   }
 
-  const handleCategoryChange = (val, allOptions = []) => {
+  const handleCategoryChange = (val: string[]) => {
     let newCats = [...cats];
 
-    if (val === "ALL") {
-      newCats = allOptions.map((o) => o.key);
-    } else if (val === "CLEAR") {
+    if (val.length === 3) {
+      newCats = val;
+    } else if (val.length === 0) {
       newCats = [];
-    } else if (newCats.includes(val)) {
-      newCats = newCats.filter((c) => c !== val);
+    } else if (newCats.includes(val[0])) {
+      newCats = newCats.filter((c) => c !== val[0]);
     } else {
-      newCats.push(val);
+      newCats.push(val[0]);
     }
 
     // обновляем URL
@@ -64,7 +70,8 @@ useEffect(() => {
     }
   };
 
-const changeSortKey = (e) => {
+  
+const changeSortKey = (e: React.ChangeEvent<HTMLSelectElement>) => {
   setSort(prev => ({ ...prev, key: e.target.value }));
 };
 
@@ -73,24 +80,14 @@ const toggleSortOrder = () => {
 };
 
 const [open, setOpen] = useState(false);
-const [cartItems, setCartItems] = useState([]);
 
-  const increment = useCallback((item) => {
+  const increment = useCallback((item: Product) => {
     dispatch(addToCart(item))
   }, [dispatch]);
 
-  const decrement = useCallback((id) => {
+  const decrement = useCallback((id: number) => {
     dispatch(decreaseInCart(id))
-  }, []);
-
-  // const remove = useCallback((id) => {
-  //   setCartItems(prev => prev.filter(it => it.id !== id));
-  // }, []);
-
-  // const subtotal = useMemo(
-  //   () => cartItems.reduce((s, it) => s + it.price * it.qty, 0),
-  //   [cartItems]
-  // );
+  }, [dispatch]);
 
 
      return (
@@ -106,14 +103,13 @@ const [cartItems, setCartItems] = useState([]);
         onClose={() => setOpen(false)}
         onIncrement={increment}
         onDecrement={decrement}
-        onCheckout={() => console.log("checkout")}
       />
           <Pagination
         currentPage={page}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-           {status === 'loading' || status === "idle" && <p>Загрузка...</p>}
+           {(status === "loading" || status === "idle") && <p>Загрузка...</p>}
            {status === 'succeeded' && <ProductGrid items={paginatedData} />}
            {status === 'failed' && <p>Ошибка при загрузке</p>}
             <Pagination

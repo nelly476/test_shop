@@ -1,6 +1,12 @@
 import "./Pagination.scss";
 
-export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+interface PaginationProps {
+  currentPage: number; 
+  totalPages: number;
+  onPageChange: (num: number) => void
+}
+
+export const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   if (totalPages <= 1) return null;
 
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
