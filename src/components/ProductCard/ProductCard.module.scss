@@ -16,11 +16,14 @@ $radius-sm: 10px;
   border-radius: $radius;
   background: $panel;
   overflow: hidden;
-  transition: transform .08s ease, box-shadow .16s ease, border-color .16s ease;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.16s ease,
+    border-color 0.16s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     border-color: color.adjust($accent, $lightness: 30%);
   }
 }
@@ -46,7 +49,7 @@ $radius-sm: 10px;
   height: 26px;
   padding: 0 8px;
   border-radius: 999px;
-  background: rgba($accent, .12);
+  background: rgba($accent, 0.12);
   color: $accent;
   display: inline-grid;
   place-items: center;
@@ -110,10 +113,18 @@ $radius-sm: 10px;
   line-height: 1;
   font-size: 18px;
   font-weight: 800;
-  transition: filter .15s ease, transform .08s ease, background .15s ease, color .15s ease;
+  transition:
+    filter 0.15s ease,
+    transform 0.08s ease,
+    background 0.15s ease,
+    color 0.15s ease;
 
-  &:hover { filter: brightness(1.05); }
-  &:active { transform: translateY(1px); }
+  &:hover {
+    filter: brightness(1.05);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
 }
 
 .qtyBtn {
@@ -121,7 +132,7 @@ $radius-sm: 10px;
   color: $accent;
 
   &:disabled {
-    opacity: .5;
+    opacity: 0.5;
     cursor: not-allowed;
   }
 }
@@ -148,8 +159,14 @@ $radius-sm: 10px;
   background: $accent;
   color: #fff;
   font-weight: 800;
-  transition: filter .15s ease, transform .08s ease;
+  transition:
+    filter 0.15s ease,
+    transform 0.08s ease;
 
-  &:hover { filter: brightness(1.05); }
-  &:active { transform: translateY(1px); }
+  &:hover {
+    filter: brightness(1.05);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
 }

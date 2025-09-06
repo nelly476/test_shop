@@ -35,8 +35,8 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ value, toggleKey }) =>
     value.length === 0
       ? PLACEHOLDER
       : value.length === 1
-      ? OPTIONS.find((o) => o.key === value[0])?.label || PLACEHOLDER
-      : `Выбрано: ${value.length}`;
+        ? OPTIONS.find((o) => o.key === value[0])?.label || PLACEHOLDER
+        : `Выбрано: ${value.length}`;
 
   return (
     <div className={styles.root} ref={ref}>
@@ -74,10 +74,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ value, toggleKey }) =>
             {OPTIONS.map((o) => {
               const checked = value.includes(o.key);
               return (
-                <label
-                  key={o.key}
-                  className={clsx(styles.item, { [styles.isChecked]: checked })}
-                >
+                <label key={o.key} className={clsx(styles.item, { [styles.isChecked]: checked })}>
                   <input
                     className={styles.checkbox}
                     type="checkbox"

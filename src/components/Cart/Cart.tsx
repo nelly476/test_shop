@@ -2,10 +2,7 @@ import { Product, useAppSelector } from "../../redux/slices/cartSlice";
 import { CartItem } from "../CartItem/CartItem";
 import clsx from "clsx";
 import styles from "./Cart.module.scss";
-import {
-  selectCartList,
-  selectTotalPrice
-} from "../../redux/selectors/cartSliceSelectors";
+import { selectCartList, selectTotalPrice } from "../../redux/selectors/cartSliceSelectors";
 
 interface CartProps {
   isOpen: boolean;
@@ -20,11 +17,11 @@ export const Cart: React.FC<CartProps> = ({
   onClose,
   onIncrement,
   onDecrement,
-  onRemove
+  onRemove,
 }) => {
   const items = useAppSelector(selectCartList);
-  const totalQty = useAppSelector(selectCartList).length
-  const totalPrice = useAppSelector(selectTotalPrice)
+  const totalQty = useAppSelector(selectCartList).length;
+  const totalPrice = useAppSelector(selectTotalPrice);
 
   return (
     <>

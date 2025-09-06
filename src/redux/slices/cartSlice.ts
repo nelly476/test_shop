@@ -92,7 +92,7 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       const id = action.payload;
-      delete state.cart[id]
+      delete state.cart[id];
     },
   },
   extraReducers: (builder) => {

@@ -17,7 +17,10 @@ $space-5: 24px;
 $space-6: 32px;
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 /* ─── layout ─────────────────────────────────────────────── */
@@ -62,7 +65,7 @@ $space-6: 32px;
   border: 1px solid $border;
   background: $panel-2;
   border-radius: $radius;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   margin-bottom: $space-5;
 }
 
@@ -89,13 +92,21 @@ $space-6: 32px;
   color: #fff;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 80ms ease, filter 160ms ease;
+  transition:
+    transform 80ms ease,
+    filter 160ms ease;
 
-  &:hover { filter: brightness(1.05); }
-  &:active { transform: translateY(1px); }
+  &:hover {
+    filter: brightness(1.05);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
 }
 
-.cartIcon { font-size: 18px; }
+.cartIcon {
+  font-size: 18px;
+}
 
 /* ─── content ────────────────────────────────────────────── */
 .content {
@@ -128,6 +139,10 @@ $space-6: 32px;
 
 /* ─── keyframes ─────────────────────────────────────────── */
 @keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }

@@ -7,7 +7,7 @@ interface CartItemProps {
   item: CartItemType;
   onIncrement: (item: Product) => void;
   onDecrement: (id: number) => void;
-  onRemove: (id: number) => void; 
+  onRemove: (id: number) => void;
 }
 
 const areEqual = (prev: Readonly<CartItemProps>, next: Readonly<CartItemProps>) => {
@@ -37,7 +37,7 @@ export const CartItem: React.FC<CartItemProps> = React.memo(function CartItem({
 
   const dec = () => onDecrement(id);
   const inc = () => onIncrement(item);
-  const rem = () => onRemove(id)
+  const rem = () => onRemove(id);
 
   return (
     <li className={styles.item}>
@@ -76,15 +76,14 @@ export const CartItem: React.FC<CartItemProps> = React.memo(function CartItem({
           </div>
         </div>
       </div>
-       <button
-          className={clsx(styles.iconBtn, styles.removeBtn)}
-          onClick={rem}
-          aria-label={`Удалить ${name} из корзины`}
-          title="Удалить"
-        >
-          ✕
-        </button>
-      
+      <button
+        className={clsx(styles.iconBtn, styles.removeBtn)}
+        onClick={rem}
+        aria-label={`Удалить ${name} из корзины`}
+        title="Удалить"
+      >
+        ✕
+      </button>
     </li>
   );
 }, areEqual);

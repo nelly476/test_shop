@@ -28,7 +28,10 @@ $sp-4: 18px;
   border: 1px solid $border;
   background: $panel;
   cursor: pointer;
-  transition: box-shadow 160ms ease, transform 80ms ease, border-color 160ms ease;
+  transition:
+    box-shadow 160ms ease,
+    transform 80ms ease,
+    border-color 160ms ease;
   color: $text;
 
   &:hover {
@@ -83,7 +86,9 @@ $sp-4: 18px;
   color: $text;
   font-weight: 600;
   cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
 
   &:hover {
     background: #eef2ff;
@@ -113,7 +118,9 @@ $sp-4: 18px;
   border: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 140ms ease, border-color 140ms ease;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease;
 
   &:hover {
     background: #fafbff;
@@ -137,5 +144,3 @@ $sp-4: 18px;
   color: $text;
   font-weight: 600;
 }
-
-

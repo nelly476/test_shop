@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
-import { addToCart, getItems, decreaseInCart, removeFromCart } from "../../redux/slices/cartSlice"
-import { ProductGrid, Pagination, FilterPanel, Sort, Cart } from "../../components/index"
+import { addToCart, getItems, decreaseInCart, removeFromCart } from "../../redux/slices/cartSlice";
+import { ProductGrid, Pagination, FilterPanel, Sort, Cart } from "../../components/index";
 import { useSearchParams } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../redux/slices/cartSlice";
 import {
@@ -82,9 +82,9 @@ export const HomePage = () => {
     [dispatch],
   );
 
-   const remove = useCallback(
+  const remove = useCallback(
     (id: number) => {
-      console.log
+      console.log;
       dispatch(removeFromCart(id));
     },
     [dispatch],
@@ -105,8 +105,14 @@ export const HomePage = () => {
             <Sort sort={sort} changeSortKey={changeSortKey} toggleSortOrder={toggleSortOrder} />
           </div>
 
-          <button className={styles.cartBtn} onClick={() => setOpen(true)} aria-label="Открыть корзину">
-            <span className={styles.cartIcon} aria-hidden>🛒</span>
+          <button
+            className={styles.cartBtn}
+            onClick={() => setOpen(true)}
+            aria-label="Открыть корзину"
+          >
+            <span className={styles.cartIcon} aria-hidden>
+              🛒
+            </span>
             <span>Корзина</span>
           </button>
         </div>
