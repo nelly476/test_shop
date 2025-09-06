@@ -1,7 +1,7 @@
 import "./Sort.scss";
 
 export type SortOrder = "asc" | "desc";
-export type SortState = {key: string, order: SortOrder}
+export type SortState = { key: string; order: SortOrder };
 
 interface SortProps {
   sort: SortState;
@@ -10,7 +10,7 @@ interface SortProps {
 }
 
 export const Sort: React.FC<SortProps> = ({ sort, changeSortKey, toggleSortOrder }) => {
-  const options = [{ key: "price", label: "Цена" }]
+  const options = [{ key: "price", label: "Цена" }];
 
   return (
     <div className="sort-select">
@@ -23,11 +23,7 @@ export const Sort: React.FC<SortProps> = ({ sort, changeSortKey, toggleSortOrder
         ))}
       </select>
 
-      <button
-        type="button"
-        className={`order ${sort.order}`}
-        onClick={toggleSortOrder}
-      >
+      <button type="button" className={`order ${sort.order}`} onClick={toggleSortOrder}>
         {sort.order === "asc" ? "▲" : "▼"}
       </button>
     </div>

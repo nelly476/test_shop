@@ -10,7 +10,7 @@
 
     // Включаем постепенную миграцию:
     "allowJs": true,
-    "checkJs": false,             // можно включить true для подсказок в .js через JSDoc
+    "checkJs": false, // можно включить true для подсказок в .js через JSDoc
     "strict": true,
     "noImplicitAny": true,
     "baseUrl": ".",

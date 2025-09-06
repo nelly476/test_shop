@@ -1,15 +1,17 @@
 import { Product } from "@/redux/slices/cartSlice";
 import { ProductCard } from "../ProductCard/ProductCard";
-import "./ProductGrid.scss"
+import styles from "./ProductGrid.module.scss";
 
 interface ProductGridProps {
-  items: Product[]
+  items: Product[];
 }
 
 export const ProductGrid: React.FC<ProductGridProps> = ({ items }) => {
   return (
-    <div className="grid">
-      {items.map(p => <ProductCard key={p.id} product={p} />)}
+    <div className={styles.root}>
+      {items.map((p) => (
+        <ProductCard key={p.id} product={p} />
+      ))}
     </div>
   );
-}
+};

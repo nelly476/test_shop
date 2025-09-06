@@ -1,0 +1,141 @@
+$panel: #fff;
+$border: #e6e8f0;
+$shadow: 0 8px 28px rgba(16, 24, 40, 0.12);
+$text: #111827;
+$muted: #6b7280;
+$accent: #2563eb;
+
+$radius: 12px;
+$radius-sm: 10px;
+$sp-1: 6px;
+$sp-2: 10px;
+$sp-3: 14px;
+$sp-4: 18px;
+
+.root {
+  position: relative;
+  font: inherit;
+  color: $text;
+}
+
+/* Кнопка-триггер */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: $radius-sm;
+  border: 1px solid $border;
+  background: $panel;
+  cursor: pointer;
+  transition: box-shadow 160ms ease, transform 80ms ease, border-color 160ms ease;
+  color: $text;
+
+  &:hover {
+    box-shadow: 0 2px 10px rgba(16, 24, 40, 0.08);
+    border-color: #dfe3eb;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.triggerText {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chevron {
+  transition: transform 160ms ease;
+  &.isOpen {
+    transform: rotate(180deg);
+  }
+}
+
+/* Выпадающее меню */
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 320px;
+  max-width: 88vw;
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: $sp-2;
+  z-index: 20;
+}
+
+.actions {
+  display: flex;
+  gap: $sp-2;
+  padding: $sp-1;
+  margin-bottom: $sp-2;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid $border;
+  background: #f7f9fc;
+  color: $text;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+
+  &:hover {
+    background: #eef2ff;
+    border-color: #dfe6ff;
+  }
+}
+
+.btnGhost {
+  background: transparent;
+}
+
+/* Список опций */
+.list {
+  display: grid;
+  gap: $sp-2;
+  max-height: 52vh;
+  overflow: auto;
+  padding: $sp-1;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease;
+
+  &:hover {
+    background: #fafbff;
+    border-color: #edf0f7;
+  }
+
+  &.isChecked {
+    background: rgba($accent, 0.06);
+    border-color: rgba($accent, 0.25);
+  }
+}
+
+/* Скрываем нативный чекбокс, оставляем доступность */
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.label {
+  color: $text;
+  font-weight: 600;
+}
+
+
