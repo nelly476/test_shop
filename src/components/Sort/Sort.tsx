@@ -16,9 +16,9 @@ export const Sort: React.FC<SortProps> = ({ sort, changeSortKey, toggleSortOrder
     <div className="sort-select">
       <label>Сортировать по:</label>
       <select value={sort.key} onChange={changeSortKey}>
-        {options.map((o) => (
-          <option key={o.key} value={o.key}>
-            {o.label}
+        {options.map((option) => (
+          <option key={option.key} value={option.key}>
+            {option.label}
           </option>
         ))}
       </select>

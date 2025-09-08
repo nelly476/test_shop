@@ -3,6 +3,7 @@ import { CartItem } from "../CartItem/CartItem";
 import clsx from "clsx";
 import styles from "./Cart.module.scss";
 import { selectCartList, selectTotalPrice } from "../../redux/selectors/cartSliceSelectors";
+import { useCallback } from "react";
 
 interface CartProps {
   isOpen: boolean;
@@ -20,9 +21,13 @@ export const Cart: React.FC<CartProps> = ({
   onRemove,
 }) => {
   const items = useAppSelector(selectCartList);
-  const totalQty = useAppSelector(selectCartList).length;
+  const totalQty = items.length;
   const totalPrice = useAppSelector(selectTotalPrice);
 
+  const increment = useCallback((item: Product) => onIncrement(item), [onIncrement])
+  const decrement = useCallback((id: number) => onDecrement(id), [onDecrement])
+  const remove = useCallback((id: number) => onRemove(id), [onRemove])
+  
   return (
     <>
       <div
@@ -66,10 +71,12 @@ export const Cart: React.FC<CartProps> = ({
               {items.map((item) => (
                 <CartItem
                   key={item.id}
-                  item={item}
-                  onIncrement={onIncrement}
-                  onDecrement={onDecrement}
-                  onRemove={onRemove}
+                 item={{
+        ...item,
+        onIncrement: () => increment(item),
+        onDecrement: () => decrement(item.id),
+        onRemove: () => remove(item.id),
+      }}
                 />
               ))}
             </ul>

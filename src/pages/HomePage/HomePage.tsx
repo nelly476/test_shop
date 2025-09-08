@@ -9,12 +9,13 @@ import {
   selectCartStatus,
 } from "../../redux/selectors/cartSliceSelectors";
 import type { Product } from "../../redux/slices/cartSlice";
-import { SortState } from "@/components/Sort/Sort";
+import { SortState } from "../../components/Sort/Sort"
 import clsx from "clsx";
 import styles from "./HomePage.module.scss";
 
 export const HomePage = () => {
   const dispatch = useAppDispatch();
+
   const [offset, setOffset] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
   const [sort, setSort] = useState<SortState>({ key: "price", order: "asc" });
@@ -31,13 +32,13 @@ export const HomePage = () => {
   const totalPages = Math.ceil(total / PAGE_SIZE);
 
   // читаем массив категорий из URL
-  const cats: string[] = useMemo(() => {
-    return searchParams.get("cats")?.split(",") ?? [];
+  const categories: string[] = useMemo(() => {
+    return searchParams.get("categories")?.split(",") ?? [];
   }, [searchParams]);
 
   useEffect(() => {
-    dispatch(getItems({ category: cats, sort: sort.key, order: sort.order }));
-  }, [dispatch, cats, sort]);
+    dispatch(getItems({ category: categories, sort: sort.key, order: sort.order }));
+  }, [dispatch, categories, sort]);
 
   useEffect(() => {
     setPaginatedData(items.slice(offset, offset + PAGE_SIZE));
@@ -50,13 +51,13 @@ export const HomePage = () => {
   };
 
   const handleCategoryChange = (val: string[]) => {
-    let next = [...cats];
+    let next = [...categories];
     if (val.length === 3) next = val;
     else if (val.length === 0) next = [];
     else if (next.includes(val[0])) next = next.filter((c) => c !== val[0]);
     else next.push(val[0]);
 
-    if (next.length > 0) setSearchParams({ cats: next.join(",") });
+    if (next.length > 0) setSearchParams({ categories: next.join(",") });
     else setSearchParams({});
   };
 
@@ -84,7 +85,6 @@ export const HomePage = () => {
 
   const remove = useCallback(
     (id: number) => {
-      console.log;
       dispatch(removeFromCart(id));
     },
     [dispatch],
@@ -100,7 +100,7 @@ export const HomePage = () => {
 
         <div className={styles.toolbar}>
           <div className={styles.toolsLeft}>
-            <FilterPanel value={cats} toggleKey={handleCategoryChange} />
+            <FilterPanel value={categories} toggleKey={handleCategoryChange} />
             <div className={styles.divider} />
             <Sort sort={sort} changeSortKey={changeSortKey} toggleSortOrder={toggleSortOrder} />
           </div>

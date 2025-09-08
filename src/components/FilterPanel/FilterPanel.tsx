@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./FilterPanel.module.scss";
+import { useOutsideClick } from "../../hooks/useOutsideClick"
 
 interface FilterPanelProps {
   value: string[];
@@ -19,15 +20,8 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ value, toggleKey }) =>
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const onDocClick = (e: MouseEvent) => {
-      if (!ref.current) return;
-      if (!ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    if (open) document.addEventListener("mousedown", onDocClick);
-    return () => document.removeEventListener("mousedown", onDocClick);
-  }, [open]);
-
+  useOutsideClick(ref, () => setOpen(false));
+  
   const selectAll = () => toggleKey(OPTIONS.map((o) => o.key));
   const clearAll = () => toggleKey([]);
 
@@ -43,7 +37,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ value, toggleKey }) =>
       <button
         type="button"
         className={styles.trigger}
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => setOpen((open) => !open)}
         aria-haspopup="listbox"
         aria-expanded={open}
       >
@@ -71,17 +65,17 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ value, toggleKey }) =>
           </div>
 
           <div className={styles.list}>
-            {OPTIONS.map((o) => {
-              const checked = value.includes(o.key);
+            {OPTIONS.map((option) => {
+              const checked = value.includes(option.key);
               return (
-                <label key={o.key} className={clsx(styles.item, { [styles.isChecked]: checked })}>
+                <label key={option.key} className={clsx(styles.item, { [styles.isChecked]: checked })}>
                   <input
                     className={styles.checkbox}
                     type="checkbox"
                     checked={checked}
-                    onChange={() => toggleKey([o.key])}
+                    onChange={() => toggleKey([option.key])}
                   />
-                  <span className={styles.label}>{o.label}</span>
+                  <span className={styles.label}>{option.label}</span>
                 </label>
               );
             })}

@@ -1,3 +1,4 @@
+import { selectCartProductQty } from "../../redux/selectors/cartSliceSelectors";
 import {
   useAppDispatch,
   useAppSelector,
@@ -14,11 +15,7 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useAppDispatch();
 
-  // если в rootReducer ключ слайса другой, поменяй s.cartSlice → s.cart
-  const qty = useAppSelector((s) => s.cartSlice.cart[product.id]?.qty ?? 0);
-
-  const inc = () => dispatch(addToCart(product));
-  const dec = () => dispatch(decreaseInCart(product.id));
+  const qty = useAppSelector(selectCartProductQty(product.id));
 
   return (
     <div className={styles.card}>
@@ -28,7 +25,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       <div className={styles.meta}>
-        {product.category && <div className={styles.cat}>{product.category}</div>}
+        {product.category && <div className={styles.category}>{product.category}</div>}
         <div className={styles.name} title={product.name}>
           {product.name}
         </div>
@@ -39,7 +36,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div className={styles.qtyControl} aria-label="Количество">
             <button
               className={styles.qtyBtn}
-              onClick={dec}
+              onClick={() => dispatch(decreaseInCart(product.id))}
               disabled={qty === 0}
               aria-label="Убавить"
               title="Убавить"
@@ -51,7 +48,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </span>
             <button
               className={styles.qtyBtnPrimary}
-              onClick={inc}
+              onClick={() => dispatch(addToCart(product))}
               aria-label="Добавить"
               title="Добавить"
             >
@@ -61,7 +58,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
 
         {qty === 0 && (
-          <button className={styles.primaryBtn} onClick={inc}>
+          <button className={styles.primaryBtn} onClick={() => dispatch(addToCart(product))}>
             В корзину
           </button>
         )}
