@@ -1,0 +1,131 @@
+@use "sass:color";
+
+$panel: #fff;
+$border: #e6e8f0;
+$text: #111827;
+$muted: #6b7280;
+$accent: #2563eb;
+
+$radius: 12px;
+$radius-sm: 10px;
+
+.item {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid $border;
+  border-radius: $radius;
+  background: $panel;
+  align-items: center;
+}
+
+.thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #f7f8fb;
+}
+
+.info {
+  min-width: 0;
+}
+
+.cat {
+  font-size: 12px;
+  color: $muted;
+  margin-bottom: 2px;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 700;
+  color: $text;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 800;
+  color: $text;
+}
+
+/* qty control */
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qtyValue {
+  min-width: 26px;
+  text-align: center;
+  font-weight: 800;
+}
+
+/* buttons */
+.iconBtn {
+  background: #f5f7fb;
+  border: 1px solid #e6e8f0;
+  border-radius: 999px;
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    transform 80ms ease,
+    color 140ms ease;
+
+  &:hover {
+    background: #eef2ff;
+    border-color: #dfe6ff;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.iconBtnNeutral {
+  color: $accent;
+  background: #eef2ff;
+  border-color: color.adjust($accent, $lightness: 30%);
+}
+
+.iconBtnPrimary {
+  color: #fff;
+  background: $accent;
+  border-color: $accent;
+}
+
+.removeBtn {
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  color: #9ca3af;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+
+  &:hover {
+    color: #ef4444;
+    border-color: #fca5a5;
+    background: #fff1f2;
+  }
+}

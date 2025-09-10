@@ -1,0 +1,148 @@
+$bg: #f6f7fb;
+$panel: #ffffff;
+$panel-2: #ffffff;
+$border: #ebeef5;
+$text: #111827;
+$muted: #6b7280;
+$accent: #2563eb;
+
+$radius: 14px;
+$radius-sm: 10px;
+
+$space-1: 6px;
+$space-2: 10px;
+$space-3: 14px;
+$space-4: 18px;
+$space-5: 24px;
+$space-6: 32px;
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ─── layout ─────────────────────────────────────────────── */
+.page {
+  min-height: 100dvh;
+  background: $bg;
+  color: $text;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $space-6 $space-5;
+}
+
+/* ─── header ─────────────────────────────────────────────── */
+.header {
+  margin-bottom: $space-5;
+}
+
+.title {
+  margin: 0 0 $space-1 0;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 32px);
+}
+
+.subtitle {
+  margin: 0;
+  color: $muted;
+}
+
+/* ─── toolbar ────────────────────────────────────────────── */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  padding: $space-3;
+  border: 1px solid $border;
+  background: $panel-2;
+  border-radius: $radius;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  margin-bottom: $space-5;
+}
+
+.toolsLeft {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.divider {
+  width: 1px;
+  height: 28px;
+  background: $border;
+}
+
+.cartBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: $radius-sm;
+  border: 1px solid $border;
+  background: $accent;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 80ms ease,
+    filter 160ms ease;
+
+  &:hover {
+    filter: brightness(1.05);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.cartIcon {
+  font-size: 18px;
+}
+
+/* ─── content ────────────────────────────────────────────── */
+.content {
+  display: grid;
+  gap: $space-5;
+}
+
+/* скелетоны */
+.skeletonArea {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: $space-3;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f1f1f1, #f7f7f7, #f1f1f1);
+  border-radius: $radius;
+  animation: shimmer 1.2s infinite;
+  height: 220px;
+  border: 1px solid $border;
+}
+
+.errorBox {
+  border: 1px solid #ffdadb;
+  background: #fff0f1;
+  color: #d93025;
+  padding: $space-3 $space-4;
+  border-radius: $radius;
+}
+
+/* ─── keyframes ─────────────────────────────────────────── */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
