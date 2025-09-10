@@ -1,15 +1,13 @@
-import { useEffect, useState, useMemo, useCallback } from "react";
-import { addToCart, getItems, decreaseInCart, removeFromCart } from "../../redux/slices/cartSlice";
+import { useEffect, useState, useMemo } from "react";
+import { getItems, useAppSelector, useAppDispatch, type Product } from "../../redux/features/cart"
 import { ProductGrid, Pagination, FilterPanel, Sort, Cart } from "../../components/index";
 import { useSearchParams } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../../redux/slices/cartSlice";
 import {
   selectItems,
   selectItemsCount,
   selectCartStatus,
-} from "../../redux/selectors/cartSliceSelectors";
-import type { Product } from "../../redux/slices/cartSlice";
-import { SortState } from "../../components/Sort/Sort"
+} from "../../redux/features/cart/cartSelectors";
+import { SortState } from "../../components/Sort/Sort";
 import clsx from "clsx";
 import styles from "./HomePage.module.scss";
 
@@ -69,27 +67,6 @@ export const HomePage = () => {
     setSort((prev) => ({ ...prev, order: prev.order === "asc" ? "desc" : "asc" }));
   };
 
-  const increment = useCallback(
-    (item: Product) => {
-      dispatch(addToCart(item));
-    },
-    [dispatch],
-  );
-
-  const decrement = useCallback(
-    (id: number) => {
-      dispatch(decreaseInCart(id));
-    },
-    [dispatch],
-  );
-
-  const remove = useCallback(
-    (id: number) => {
-      dispatch(removeFromCart(id));
-    },
-    [dispatch],
-  );
-
   return (
     <div className={styles.page}>
       <div className={styles.container}>
@@ -139,13 +116,7 @@ export const HomePage = () => {
         </section>
       </div>
 
-      <Cart
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        onIncrement={increment}
-        onDecrement={decrement}
-        onRemove={remove}
-      />
+      <Cart isOpen={open} onClose={() => setOpen(false)} />
     </div>
   );
 };

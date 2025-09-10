@@ -1,11 +1,11 @@
-import { selectCartProductQty } from "../../redux/selectors/cartSliceSelectors";
+import { selectCartProductQty } from  "../../redux/features/cart";
 import {
   useAppDispatch,
   useAppSelector,
   addToCart,
   decreaseInCart,
-} from "../../redux/slices/cartSlice";
-import type { Product } from "../../redux/slices/cartSlice";
+  type Product
+} from  "../../redux/features/cart";
 import styles from "./ProductCard.module.scss";
 
 interface ProductCardProps {

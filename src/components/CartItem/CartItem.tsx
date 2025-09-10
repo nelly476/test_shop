@@ -1,25 +1,31 @@
 import React from "react";
-import type { CartItemType, Product } from "../../redux/slices/cartSlice"
+import {
+  addToCart,
+  decreaseInCart,
+  removeFromCart,
+  useAppDispatch,
+  type CartItemType,
+  type Product,
+} from  "../../redux/features/cart";
 import styles from "./CartItem.module.scss";
 import clsx from "clsx";
 
+export const CartItem: React.FC<CartItemType> = React.memo(function CartItem(item) {
+  const dispatch = useAppDispatch();
 
-type CartItemWithHandlers = CartItemType & {
-  onIncrement: (item: Product) => void;
-  onDecrement: (id: number) => void;
-  onRemove: (id: number) => void;
-};
+  const { id, name, image, price, qty, category } = item;
 
-interface CartItemProps {
-  item: CartItemWithHandlers;
-}
+  const increment = (item: Product) => {
+    dispatch(addToCart(item));
+  };
 
+  const decrement = (id: number) => {
+    dispatch(decreaseInCart(id));
+  };
 
-export const CartItem: React.FC<CartItemProps> = React.memo(function CartItem({item}) {
-
-  const { id, name, image, price, qty, category, onIncrement,
-  onDecrement,
-  onRemove } = item;
+  const remove = (id: number) => {
+    dispatch(removeFromCart(id));
+  };
 
   return (
     <li className={styles.item}>
@@ -37,7 +43,7 @@ export const CartItem: React.FC<CartItemProps> = React.memo(function CartItem({i
           <div className={styles.qty} aria-label={`Количество для ${name}`}>
             <button
               className={clsx(styles.iconBtn, styles.iconBtnNeutral)}
-              onClick={() => onDecrement(id)}
+              onClick={() => decrement(id)}
               disabled={qty <= 1}
               aria-label={`Уменьшить количество у ${name}`}
               title="Уменьшить"
@@ -49,7 +55,7 @@ export const CartItem: React.FC<CartItemProps> = React.memo(function CartItem({i
             </span>
             <button
               className={clsx(styles.iconBtn, styles.iconBtnPrimary)}
-              onClick={() => onIncrement(item)}
+              onClick={() => increment(item)}
               aria-label={`Увеличить количество у ${name}`}
               title="Добавить"
             >
@@ -60,7 +66,7 @@ export const CartItem: React.FC<CartItemProps> = React.memo(function CartItem({i
       </div>
       <button
         className={clsx(styles.iconBtn, styles.removeBtn)}
-        onClick={() => onRemove(id)}
+        onClick={() => remove(id)}
         aria-label={`Удалить ${name} из корзины`}
         title="Удалить"
       >

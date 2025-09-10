@@ -1,33 +1,19 @@
-import { Product, useAppSelector } from "../../redux/slices/cartSlice";
+import { useAppSelector } from  "../../redux/features/cart"
 import { CartItem } from "../CartItem/CartItem";
 import clsx from "clsx";
 import styles from "./Cart.module.scss";
-import { selectCartList, selectTotalPrice } from "../../redux/selectors/cartSliceSelectors";
-import { useCallback } from "react";
+import { selectCartList, selectTotalPrice } from  "../../redux/features/cart";
 
 interface CartProps {
   isOpen: boolean;
   onClose: () => void;
-  onIncrement: (item: Product) => void;
-  onDecrement: (id: number) => void;
-  onRemove: (id: number) => void;
 }
 
-export const Cart: React.FC<CartProps> = ({
-  isOpen,
-  onClose,
-  onIncrement,
-  onDecrement,
-  onRemove,
-}) => {
+export const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   const items = useAppSelector(selectCartList);
   const totalQty = items.length;
   const totalPrice = useAppSelector(selectTotalPrice);
 
-  const increment = useCallback((item: Product) => onIncrement(item), [onIncrement])
-  const decrement = useCallback((id: number) => onDecrement(id), [onDecrement])
-  const remove = useCallback((id: number) => onRemove(id), [onRemove])
-  
   return (
     <>
       <div
@@ -69,15 +55,7 @@ export const Cart: React.FC<CartProps> = ({
           ) : (
             <ul className={styles.cartList}>
               {items.map((item) => (
-                <CartItem
-                  key={item.id}
-                 item={{
-        ...item,
-        onIncrement: () => increment(item),
-        onDecrement: () => decrement(item.id),
-        onRemove: () => remove(item.id),
-      }}
-                />
+                <CartItem key={item.id} {...item} />
               ))}
             </ul>
           )}

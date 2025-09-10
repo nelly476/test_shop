@@ -1,4 +1,4 @@
-import { Product } from "../../redux/slices/cartSlice"
+import { Product } from  "../../redux/features/cart";
 import { ProductCard } from "../ProductCard/ProductCard";
 import styles from "./ProductGrid.module.scss";
 

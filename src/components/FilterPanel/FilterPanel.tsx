@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./FilterPanel.module.scss";
-import { useOutsideClick } from "../../hooks/useOutsideClick"
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 interface FilterPanelProps {
   value: string[];
@@ -21,7 +21,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ value, toggleKey }) =>
   const ref = useRef<HTMLDivElement | null>(null);
 
   useOutsideClick(ref, () => setOpen(false));
-  
+
   const selectAll = () => toggleKey(OPTIONS.map((o) => o.key));
   const clearAll = () => toggleKey([]);
 
@@ -68,7 +68,10 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ value, toggleKey }) =>
             {OPTIONS.map((option) => {
               const checked = value.includes(option.key);
               return (
-                <label key={option.key} className={clsx(styles.item, { [styles.isChecked]: checked })}>
+                <label
+                  key={option.key}
+                  className={clsx(styles.item, { [styles.isChecked]: checked })}
+                >
                   <input
                     className={styles.checkbox}
                     type="checkbox"
